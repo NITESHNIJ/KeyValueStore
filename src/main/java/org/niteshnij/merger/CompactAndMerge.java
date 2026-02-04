@@ -63,6 +63,7 @@ public class CompactAndMerge {
             File mergedFile = new File("data", mergedName);
 
             if (!mergedFile.createNewFile()) {
+                // Another merge may have already produced this file; bail out safely.
                 System.err.println("Merge aborted: could not create " + mergedName);
                 return;
             }

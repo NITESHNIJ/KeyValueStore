@@ -23,6 +23,7 @@ import java.util.concurrent.Executors;
 public class MasterTask {
 
     private static final int NUM_READ_THREADS = 5;
+    // ~1 in 100 writes triggers compaction; low enough not to stall throughput.
     private static final double MERGE_TRIGGER_PROBABILITY = 0.01;
 
     private final Queue<ReadTask> readQueue = new ConcurrentLinkedQueue<>();

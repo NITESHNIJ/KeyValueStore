@@ -29,6 +29,7 @@ public class DataFilesManager implements DataFileSizeListener {
 
     private static final String DATA_DIR = "data";
     // Grace period before a soft-deleted file is physically removed (ms).
+    // 2 s is enough for in-flight reads to finish; tune if read latency spikes.
     private static final long DELETE_GRACE_MS = 2000;
 
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
